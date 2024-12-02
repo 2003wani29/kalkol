@@ -142,4 +142,152 @@ text h3 {
     }
 }
 
+/* CSS untuk teks Entri Profil */
+.profile-title {
+    text-align: center;
+    font-size: 30px;
+    color: #1e90ff; 
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+/* CSS untuk kolom entri profil */
+.profile-entry-container {
+    background-color: #ffe6e6;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-entry-container table {
+    width: 100%;
+}
+
+.profile-entry-container td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.profile-entry-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.profile-entry-container input[type="text"],
+.profile-entry-container input[type="number"],
+.profile-entry-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d2691e; 
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #ffcccb; 
+}
+
+.profile-entry-container .radio-group {
+    display: flex;
+    align-items: center;
+    background-color: #ffcccb; 
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.profile-entry-container .radio-group label {
+    margin-right: 10px;
+}
+
+.profile-entry-container input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* CSS untuk container tombol Kirim */
+.submit-container {
+    background-color: #ffe6e6;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 10px auto;
+    text-align: center; /* Teks di tengah */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.submit-container input[type="submit"] {
+    background-color: transparent; 
+    color: #1e90ff; 
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.submit-container input[type="submit"]:hover {
+    color: #4a90e2; /
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-entry-container,
+    .submit-container {
+        width: 100%;
+    }
+}
+
+.evaluation {
+    background-color: #FFE4E1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.evaluation h2 {
+    color: #337AB7;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form input, form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+.form button {
+    padding: 10px;
+    background-color: #FFD1DC;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #FFB6C1;
+}
+
+
     </style>
