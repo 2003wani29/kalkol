@@ -6,34 +6,14 @@
   <title>Kalkulator Kalori</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Tambahkan beberapa gaya dasar untuk tampilan */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
+    /* Tambahkan beberapa gaya sederhana */
     .container {
-      width: 80%;
-      margin: auto;
-      overflow: hidden;
+      max-width: 600px;
+      margin: 20px auto;
       padding: 20px;
-      background: #fff;
-      margin-top: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #333;
-    }
-    main {
-      margin-top: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     .form-group {
       margin-bottom: 15px;
@@ -44,21 +24,22 @@
     }
     input, select, button {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
       box-sizing: border-box;
     }
     button {
-      background-color: #28a745;
-      color: #fff;
+      background: #007bff;
+      color: white;
       border: none;
       cursor: pointer;
     }
     button:hover {
-      background-color: #218838;
+      background: #0056b3;
     }
     .result p {
-      font-size: 1.2em;
-      margin: 10px 0;
+      font-size: 1.1em;
+      margin: 5px 0;
     }
   </style>
 </head>
@@ -76,7 +57,7 @@
     </header>
     <main>
       <h2>CATATAN KALORI HARIAN</h2>
-      <form id="kalori-form">
+      <form id="kaloriForm">
         <div class="form-group">
           <label for="nama-makanan">Nama Makanan:</label>
           <input type="text" id="nama-makanan" placeholder="Masukan nama makanan" required>
@@ -109,59 +90,54 @@
   </div>
 
   <script>
-    // Mendapatkan referensi ke elemen-elemen DOM
-    const form = document.getElementById('kalori-form');
-    const totalMakananElem = document.getElementById('total-makanan');
-    const totalTerbakarElem = document.getElementById('total-terbakar');
-    const kaloriBersihElem = document.getElementById('kalori-bersih');
+    const form = document.getElementById('kaloriForm');
+    const totalMakananEl = document.getElementById('total-makanan');
+    const totalTerbakarEl = document.getElementById('total-terbakar');
+    const kaloriBersihEl = document.getElementById('kalori-bersih');
 
-    // Menyimpan total kalori
     let totalMakanan = 0;
     let totalTerbakar = 0;
 
-    // Fungsi untuk mendapatkan kalori terbakar berdasarkan aktivitas
-    function getKaloriTerbakar(aktivitas, durasi) {
+    // Fungsi untuk menghitung kalori terbakar
+    function hitungKaloriTerbakar(aktivitas, durasi) {
       const kaloriPerJam = {
-        'lari': 500,
-        'bersepeda': 400,
-        'jalan': 300
+        lari: 500,
+        bersepeda: 400,
+        jalan: 300,
       };
-
       return kaloriPerJam[aktivitas] * durasi;
     }
 
-    // Menangani submit form
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Mencegah reload halaman
+    // Event listener untuk form submit
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-      // Mengambil nilai input
       const namaMakanan = document.getElementById('nama-makanan').value.trim();
       const kalori = parseInt(document.getElementById('kalori').value);
       const jenisAktivitas = document.getElementById('jenis-aktivitas').value;
       const durasi = parseInt(document.getElementById('durasi').value);
 
-      // Validasi input
       if (!namaMakanan || isNaN(kalori) || !jenisAktivitas || isNaN(durasi)) {
-        alert('Silakan isi semua field dengan benar.');
+        alert('Silakan isi semua field dengan benar!');
         return;
       }
 
-      // Update total kalori makanan
+      // Tambahkan total kalori makanan
       totalMakanan += kalori;
 
-      // Hitung kalori terbakar
-      const kaloriTerbakar = getKaloriTerbakar(jenisAktivitas, durasi);
+      // Hitung total kalori terbakar
+      const kaloriTerbakar = hitungKaloriTerbakar(jenisAktivitas, durasi);
       totalTerbakar += kaloriTerbakar;
 
       // Hitung kalori bersih
       const kaloriBersih = totalMakanan - totalTerbakar;
 
-      // Update tampilan
-      totalMakananElem.textContent = totalMakanan;
-      totalTerbakarElem.textContent = kaloriTerbakar;
-      kaloriBersihElem.textContent = kaloriBersih;
+      // Update nilai di DOM
+      totalMakananEl.textContent = totalMakanan;
+      totalTerbakarEl.textContent = totalTerbakar;
+      kaloriBersihEl.textContent = kaloriBersih;
 
-      // Reset form
+      // Reset form setelah submit
       form.reset();
     });
   </script>
