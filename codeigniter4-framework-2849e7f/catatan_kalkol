@@ -5,11 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kalkulator Kalori</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Tambahkan beberapa gaya dasar untuk tampilan */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      padding: 20px;
+      background: #fff;
+      margin-top: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    main {
+      margin-top: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .result p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Kalkulator <span>kalori</span></h1>
+      <h1>Kalkulator <span>Kalori</span></h1>
       <nav>
         <a href="#">Data</a>
         <a href="#">Giziku</a>
@@ -20,34 +76,94 @@
     </header>
     <main>
       <h2>CATATAN KALORI HARIAN</h2>
-      <form>
+      <form id="kalori-form">
         <div class="form-group">
           <label for="nama-makanan">Nama Makanan:</label>
-          <input type="text" id="nama-makanan" placeholder="Masukan nama makanan">
+          <input type="text" id="nama-makanan" placeholder="Masukan nama makanan" required>
         </div>
         <div class="form-group">
           <label for="kalori">Kalori (kcl):</label>
-          <input type="number" id="kalori" placeholder="Masukan jumlah kalori">
+          <input type="number" id="kalori" placeholder="Masukan jumlah kalori" required>
         </div>
         <div class="form-group">
           <label for="jenis-aktivitas">Jenis Aktivitas:</label>
-          <select id="jenis-aktivitas">
-            <option>Pilih aktivitas</option>
-            <!-- Tambahkan opsi aktivitas di sini -->
+          <select id="jenis-aktivitas" required>
+            <option value="">Pilih aktivitas</option>
+            <option value="lari">Lari (500 kcal/jam)</option>
+            <option value="bersepeda">Bersepeda (400 kcal/jam)</option>
+            <option value="jalan">Jalan Kaki (300 kcal/jam)</option>
           </select>
         </div>
         <div class="form-group">
           <label for="durasi">Durasi (jam):</label>
-          <input type="number" id="durasi" placeholder="Masukan durasi aktivitas">
+          <input type="number" id="durasi" placeholder="Masukan durasi aktivitas" required>
         </div>
         <button type="submit">Tambah Data</button>
       </form>
       <div class="result">
-        <p>Total kalori makanan:</p>
-        <p>Total kalori terbakar:</p>
-        <p>Kalori bersih:</p>
+        <p>Total kalori makanan: <span id="total-makanan">0</span> kcl</p>
+        <p>Total kalori terbakar: <span id="total-terbakar">0</span> kcl</p>
+        <p>Kalori bersih: <span id="kalori-bersih">0</span> kcl</p>
       </div>
     </main>
   </div>
+
+  <script>
+    // Mendapatkan referensi ke elemen-elemen DOM
+    const form = document.getElementById('kalori-form');
+    const totalMakananElem = document.getElementById('total-makanan');
+    const totalTerbakarElem = document.getElementById('total-terbakar');
+    const kaloriBersihElem = document.getElementById('kalori-bersih');
+
+    // Menyimpan total kalori
+    let totalMakanan = 0;
+    let totalTerbakar = 0;
+
+    // Fungsi untuk mendapatkan kalori terbakar berdasarkan aktivitas
+    function getKaloriTerbakar(aktivitas, durasi) {
+      const kaloriPerJam = {
+        'lari': 500,
+        'bersepeda': 400,
+        'jalan': 300
+      };
+
+      return kaloriPerJam[aktivitas] * durasi;
+    }
+
+    // Menangani submit form
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Mencegah reload halaman
+
+      // Mengambil nilai input
+      const namaMakanan = document.getElementById('nama-makanan').value.trim();
+      const kalori = parseInt(document.getElementById('kalori').value);
+      const jenisAktivitas = document.getElementById('jenis-aktivitas').value;
+      const durasi = parseInt(document.getElementById('durasi').value);
+
+      // Validasi input
+      if (!namaMakanan || isNaN(kalori) || !jenisAktivitas || isNaN(durasi)) {
+        alert('Silakan isi semua field dengan benar.');
+        return;
+      }
+
+      // Update total kalori makanan
+      totalMakanan += kalori;
+
+      // Hitung kalori terbakar
+      const kaloriTerbakar = getKaloriTerbakar(jenisAktivitas, durasi);
+      totalTerbakar += kaloriTerbakar;
+
+      // Hitung kalori bersih
+      const kaloriBersih = totalMakanan - totalTerbakar;
+
+      // Update tampilan
+      totalMakananElem.textContent = totalMakanan;
+      totalTerbakarElem.textContent = kaloriTerbakar;
+      kaloriBersihElem.textContent = kaloriBersih;
+
+      // Reset form
+      form.reset();
+    });
+  </script>
 </body>
 </html>
