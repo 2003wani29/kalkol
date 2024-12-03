@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Kalori</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kalkulator <span>kalori</span></h1>
+      <nav>
+        <a href="#">Data</a>
+        <a href="#">Giziku</a>
+        <a href="#">Artikel</a>
+        <a href="#">Evaluasi</a>
+        <a href="#">Logout</a>
+      </nav>
+    </header>
+    <main>
+      <h2>CATATAN KALORI HARIAN</h2>
+      <form>
+        <div class="form-group">
+          <label for="nama-makanan">Nama Makanan:</label>
+          <input type="text" id="nama-makanan" placeholder="Masukan nama makanan">
+        </div>
+        <div class="form-group">
+          <label for="kalori">Kalori (kcl):</label>
+          <input type="number" id="kalori" placeholder="Masukan jumlah kalori">
+        </div>
+        <div class="form-group">
+          <label for="jenis-aktivitas">Jenis Aktivitas:</label>
+          <select id="jenis-aktivitas">
+            <option>Pilih aktivitas</option>
+            <!-- Tambahkan opsi aktivitas di sini -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="durasi">Durasi (jam):</label>
+          <input type="number" id="durasi" placeholder="Masukan durasi aktivitas">
+        </div>
+        <button type="submit">Tambah Data</button>
+      </form>
+      <div class="result">
+        <p>Total kalori makanan:</p>
+        <p>Total kalori terbakar:</p>
+        <p>Kalori bersih:</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
