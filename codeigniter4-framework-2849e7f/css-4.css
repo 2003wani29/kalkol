@@ -18,7 +18,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #ffe4e1;
-    padding: 10px 20px;
+    padding: 20px;
     border-radius: 10px;
 }
 
@@ -59,11 +59,6 @@ header {
     color: #d2691e;
 }
 
-.logo span {
-    color: #1e90ff;
-    font-weight: bold;
-}
-
 nav ul {
     list-style: none;
     margin: 0;
@@ -80,21 +75,30 @@ nav ul li a {
     color: #1e90ff;
     font-size: 18px;
 }
+.logo-image{
+    width: 100px;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+.logo-image:hover{
+    transform: scale(1.2);
+}
 
+/*css untuk artikel*/
 main {
     margin-top: 20px;
 }
 
 .content {
     display: flex;
-    background-color: #fff;
+    background-color: #faf4f6;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .content img {
-    width: 50%;
+    width: 90%;
     border-radius: 10px;
 }
 
@@ -102,21 +106,22 @@ main {
     padding-left: 20px;
 }
 
-.text h2 {
-    font-size: 24px;
-    color: #000;
+h2, h3 {
+    margin:0 0 10px ;  
+    color:rgb(158, 21, 44); 
 }
-
-text h3 {
-    font-size: 20px;
-    color: #000;
+p{
+    margin: 0 0 20px;
+    color: rgb(158, 21, 44);
 }
-
-.text p {
-    font-size: 16px;
-    color: #000;
+.bulleted-list{
+    list-style-type: disc;
+    padding-left: 20px;
+    color: rgb(158, 21, 44);
 }
-
+.bulleted-list li{
+    margin-bottom: 10px;
+}
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -186,21 +191,36 @@ text h3 {
     background-color: #ffcccb; 
 }
 
-.profile-entry-container .radio-group {
-    display: flex;
-    align-items: center;
-    background-color: #ffcccb; 
+.profile-entry-container {
+    background-color: #ffe4e1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.buttons button {
+    background-color: #ffffff; /* Background putih */
+    border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #337ab7; /* Teks berwarna biru */
 }
 
-.profile-entry-container .radio-group label {
-    margin-right: 10px;
+.buttons .yes {
+    color: #337ab7; /* Teks berwarna merah */
 }
 
-.profile-entry-container input[type="radio"] {
-    margin-right: 5px;
+.buttons .no {
+    color: #337ab7; /* Teks berwarna biru */
 }
+
+
 
 /* CSS untuk container tombol Kirim */
 .submit-container {
@@ -286,7 +306,7 @@ text h3 {
 }
 
 .form button:hover {
-    background-color: #FFB6C1;
+    background-color: #eee7e8;
 }
 
 
