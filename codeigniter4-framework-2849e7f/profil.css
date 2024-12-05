@@ -76,72 +76,78 @@ nav ul li a {
     font-size: 18px;
 }
 .logo-image{
-    width: 200px;
-    height: 160px;
+    width: 100px;
+    height: 80px;
     transition: transform 0.3s ease;
 }
 .logo-image:hover{
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
-/*evaluasi*/
-.evaluation-title {
+/*entri profil*/
+.profile-title {
     text-align: center;
-    color: #1E90FF; 
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: bold;
+    font-size: 30px;
+    color: #1e90ff; 
+    margin-top: 20px;
+    margin-bottom: 20px; 
 }
 
-
-.evaluation {
-    background-color: #FFE4E1; 
+.profile-entry-container {
+    background-color: #ffe6e6;
     padding: 20px;
     border-radius: 10px;
-    width: 400px; 
-    margin: 0 auto 20px;
+    width: 400px;
+    margin: 20px auto;
 }
 
-.evaluation form {
+.profile-entry-container table {
+    width: 100%;
+}
+
+.profile-entry-container td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.profile-entry-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.profile-entry-container input[type="text"],
+.profile-entry-container input[type="number"],
+.profile-entry-container select {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #d2691e; 
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #ffcccb; 
+}
+
+.profile-entry-container .radio-group {
+    width: 98%;
+    max-width: 500px;
+    border: 1px solid #d2691e; 
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    background-color: #ffcccb; 
+    border-radius: 5px;
+    padding: 10px;
 }
 
-.evaluation input[type="text"],
-.evaluation input[type="email"],
-.evaluation textarea {
-    width: 90%; 
-    max-width: 350px; 
-    padding: 12px; 
-    border: 1px solid #DDD; 
-    border-radius: 5px; 
-    background-color: #FFF7F7; 
-    font-size: 16px; 
-    font-family: 'Arial', sans-serif;
-    color: #333; 
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); 
-    margin: 0 auto; 
+.profile-entry-container .radio-group label {
+    margin-right: 10px;
 }
 
-.evaluation textarea {
-    height: 150px; 
-    resize: none; 
-}
-
-.evaluation input::placeholder,
-.evaluation textarea::placeholder {
-    color: #999; 
-}
-
-textarea {
-    resize: none; 
-    height: 100px;
+.profile-entry-container input[type="radio"] {
+    margin-right: 5px;
 }
 
 .submit-container {
-    background-color: #FFE4E1;
-    color: #1e90ff;
+    background-color: #ffe6e6;
     padding: 20px;
     border-radius: 10px;
     width: 400px;
@@ -150,8 +156,8 @@ textarea {
 }
 
 .submit-container input[type="submit"] {
-    background-color: transparent;
-    color: #1e90ff;
+    background-color: transparent; 
+    color: #1e90ff; 
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -160,10 +166,13 @@ textarea {
     text-align: center;
 }
 
+.submit-container input[type="submit"]:hover {
+    color: #4a90e2;
+}
+
 @media (max-width: 768px) {
-    .evaluation,
+    .profile-entry-container,
     .submit-container {
-        width: 90%;
+        width: 100%;
     }
 }
-/style
