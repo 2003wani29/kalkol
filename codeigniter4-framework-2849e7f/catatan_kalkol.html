@@ -74,14 +74,17 @@
         return;
       }
       totalMakanan += kalori;
-      
-            
+      const aktivitasKalori = { lari: 500, bersepeda: 400, jalan: 300 };
+      const kaloriTerbakar = aktivitasKalori[jenisAktivitas] * durasi;
+      totalTerbakar += kaloriTerbakar;
 
+      const kaloriBersih = totalMakanan - totalTerbakar;
+            
       totalMakananEl.textContent = totalMakanan;
       totalTerbakarEl.textContent = totalTerbakar;
       kaloriBersihEl.textContent = kaloriBersih;
 
-      form.reset();
+    
     });
   </script>
 </body>
