@@ -8,7 +8,7 @@
 <body>
   <div>
     <header>
-        <h1>Catatan Kalori</h1>
+      <h1>Catatan Kalori</h1>
       <nav>
         <a href="data.html">Data</a> |
         <a href="giziku.html">Giziku</a> |
@@ -17,7 +17,6 @@
         <a href="logout.html">Logout</a>
       </nav>
     </header>
-    <main>
     <main>
       <h2>Catatan Kalori Harian</h2>
       <form id="kaloriForm">
@@ -73,18 +72,19 @@
         alert('Silakan isi semua field dengan benar!');
         return;
       }
+
       totalMakanan += kalori;
       const aktivitasKalori = { lari: 500, bersepeda: 400, jalan: 300 };
       const kaloriTerbakar = aktivitasKalori[jenisAktivitas] * durasi;
       totalTerbakar += kaloriTerbakar;
 
       const kaloriBersih = totalMakanan - totalTerbakar;
-            
+
       totalMakananEl.textContent = totalMakanan;
       totalTerbakarEl.textContent = totalTerbakar;
       kaloriBersihEl.textContent = kaloriBersih;
 
-    
+      form.reset();
     });
   </script>
 </body>
