@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Kalori</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdfdf5;
+    }
 
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f8d7da;
+      padding: 10px 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+      color: #d9534f;
+    }
+
+    header h1 span {
+      color: #0056b3;
+    }
+
+    nav a {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #0056b3;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0056b3;
+    }
+
+    form {
+      background-color: #fdecee;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #6c757d;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kalkulator <span>kalori</span></h1>
+      <nav>
+        <a href="#">Data</a>
+        <a href="#">Giziku</a>
+        <a href="#">Artikel</a>
+        <a href="#">Evaluasi</a>
+        <a href="#">Logout</a>
+      </nav>
+    </header>
