@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Kalori</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdfdf5;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f8d7da;
+      padding: 10px 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+      color: #d9534f;
+    }
+
+    header h1 span {
+      color: #0056b3;
+    }
+
+    nav a {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #0056b3;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0056b3;
+    }
+
+    form {
+      background-color: #fdecee;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #6c757d;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kalkulator <span>kalori</span></h1>
+      <nav>
+        <a href="#">Data</a>
+        <a href="#">Giziku</a>
+        <a href="#">Artikel</a>
+        <a href="#">Evaluasi</a>
+        <a href="#">Logout</a>
+      </nav>
+    </header>
+    <main>
+      <h2>CATATAN KALORI HARIAN</h2>
+      <form id="kalori-form">
+        <div class="form-group">
+          <label for="nama-makanan">Nama Makanan:</label>
+          <input type="text" id="nama-makanan" placeholder="Masukan nama makanan">
+        </div>
+        <div class="form-group">
+          <label for="kalori">Kalori (kcl):</label>
+          <input type="number" id="kalori" placeholder="Masukan jumlah kalori">
+        </div>
+        <div class="form-group">
+          <label for="jenis-aktivitas">Jenis Aktivitas:</label>
+          <select id="jenis-aktivitas">
+            <option value="0">Pilih aktivitas</option>
+            <option value="500">Lari (500 kcal/jam)</option>
+            <option value="400">Bersepeda (400 kcal/jam)</option>
+            <option value="300">Jalan Kaki (300 kcal/jam)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="durasi">Durasi (jam):</label>
+          <input type="number" id="durasi" placeholder="Masukan durasi aktivitas">
+        </div>
+        <button type="button" onclick="hitungKalori()">Tambah Data</button>
+      </form>
+      <div class="result">
+        <p>Total kalori makanan: <span id="total-makanan">0</span> kcl</p>
+        <p>Total kalori terbakar: <span id="total-terbakar">0</span> kcl</p>
+        <p>Kalori bersih: <span id="kalori-bersih">0</span> kcl</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let totalKaloriMakanan = 0;
+    let totalKaloriTerbakar = 0;
+
+    function hitungKalori() {
+      // Ambil input dari form
+      const kaloriMakanan = parseInt(document.getElementById('kalori').value) || 0;
+      const kaloriAktivitas = parseInt(document.getElementById('jenis-aktivitas').value) || 0;
+      const durasi = parseFloat(document.getElementById('durasi').value) || 0;
+
+      // Tambahkan ke total makanan
+      totalKaloriMakanan += kaloriMakanan;
+
+      // Hitung kalori terbakar
+      const kaloriTerbakar = kaloriAktivitas * durasi;
+      totalKaloriTerbakar += kaloriTerbakar;
+
+      // Hitung kalori bersih
+      const kaloriBersih = totalKaloriMakanan - totalKaloriTerbakar;
+
+      // Tampilkan hasil
+      document.getElementById('total-makanan').innerText = totalKaloriMakanan;
+      document.getElementById('total-terbakar').innerText = totalKaloriTerbakar;
+      document.getElementById('kalori-bersih').innerText = kaloriBersih;
+    }
+  </script>
+</body>
+</html>
