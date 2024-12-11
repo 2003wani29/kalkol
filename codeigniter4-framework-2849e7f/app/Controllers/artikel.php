@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,11 +16,11 @@
     </div>
     <nav>
         <ul>
-       <li><a href="coba.html">Data</a></li>
+       <li><a href="entriprofil.php">Data</a></li>
        <li><a href="#">Giziku</a></li> 
-        <li><a href="artikel.html">Artikel</a></li>
-        <li><a href="evaluasi.html">Evaluasi</a></li>
-        <li><a href="logout.html">Logout</a></li>
+        <li><a href="artikel.php">Artikel</a></li>
+        <li><a href="evaluasi.php">Evaluasi</a></li>
+        <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
     </header>
