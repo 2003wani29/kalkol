@@ -9,7 +9,6 @@
 </head>
 <body>
     <?php
-    
     echo '<header>';
     echo '    <div class="logo">';
     echo '        <img src="image/home-icon.png" alt="home">';
