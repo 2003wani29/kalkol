@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catatan Kalori</title>
+</head>
+<body>
+  <div>
+    <header>
+      <h1>Catatan Kalori</h1>
+      <nav>
+        <a href="data.html">Data</a> |
+        <a href="giziku.html">Giziku</a> |
+        <a href="artikel.html">Artikel</a> |
+        <a href="evaluasi.html">Evaluasi</a> |
+        <a href="logout.html">Logout</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Catatan Kalori Harian</h2>
+      <form id="kaloriForm">
+        <div>
+          <label for="nama-makanan">Nama Makanan:</label>
+          <input type="text" id="nama-makanan" placeholder="Masukkan nama makanan" required>
+        </div>
+        <div>
+          <label for="kalori">Kalori (kcal):</label>
+          <input type="number" id="kalori" placeholder="Masukkan jumlah kalori" required>
+        </div>
+        <div>
+          <label for="jenis-aktivitas">Jenis Aktivitas:</label>
+          <select id="jenis-aktivitas" required>
+            <option value="">Pilih aktivitas</option>
+            <option value="lari">Lari (500 kcal/jam)</option>
+            <option value="bersepeda">Bersepeda (400 kcal/jam)</option>
+            <option value="jalan">Jalan Kaki (300 kcal/jam)</option>
+          </select>
+        </div>
+        <div>
+          <label for="durasi">Durasi (jam):</label>
+          <input type="number" id="durasi" placeholder="Masukkan durasi aktivitas" required>
+        </div>
+        <button type="submit">Tambah Data</button>
+      </form>
+      <div>
+        <p>Total kalori makanan: <span id="total-makanan">0</span> kcal</p>
+        <p>Total kalori terbakar: <span id="total-terbakar">0</span> kcal</p>
+        <p>Kalori bersih: <span id="kalori-bersih">0</span> kcal</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const form = document.getElementById('kaloriForm');
+    const totalMakananEl = document.getElementById('total-makanan');
+    const totalTerbakarEl = document.getElementById('total-terbakar');
+    const kaloriBersihEl = document.getElementById('kalori-bersih');
+
+    let totalMakanan = 0;
+    let totalTerbakar = 0;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const namaMakanan = document.getElementById('nama-makanan').value.trim();
+      const kalori = parseInt(document.getElementById('kalori').value);
+      const jenisAktivitas = document.getElementById('jenis-aktivitas').value;
+      const durasi = parseInt(document.getElementById('durasi').value);
+
+      if (!namaMakanan || isNaN(kalori) || !jenisAktivitas || isNaN(durasi)) {
+        alert('Silakan isi semua field dengan benar!');
+        return;
+      }
+
+      totalMakanan += kalori;
+      const aktivitasKalori = { lari: 500, bersepeda: 400, jalan: 300 };
+      const kaloriTerbakar = aktivitasKalori[jenisAktivitas] * durasi;
+      totalTerbakar += kaloriTerbakar;
+
+      const kaloriBersih = totalMakanan - totalTerbakar;
+
+      totalMakananEl.textContent = totalMakanan;
+      totalTerbakarEl.textContent = totalTerbakar;
+      kaloriBersihEl.textContent = kaloriBersih;
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
