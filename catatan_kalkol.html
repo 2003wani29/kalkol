@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Kalori</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f5;
+            color: #4a4a4a;
+        }
+
+        header {
+            background-color: #ffd7d7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4a90e2;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #1c73c0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4a90e2;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffecec;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .form-container button {
+            width: 100%;
+            background-color: #d9534f;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #c12e2a;
+        }
+
+        .result {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .result p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4a90e2;
+            margin: 10px 0;
+            border: 1px solid #4a90e2;
+            border-radius: 3px;
+            padding: 10px;
+            background-color: #e8f4fc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/home-icon.png" alt="Home">
+            <h1><img src="image/kalkol.png" alt="kalkol"></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="entriprofil.html">Data</a></li>
+                <li><a href="catatan_kalkol.html">Giziku</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="evaluasi.html">Evaluasi</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Catatan Kalori Harian</h2>
+
+    <div class="form-container">
+        <form id="calorieForm" method="POST" action="submit_calorie.php">
+            <label for="foodName">Nama Makanan:</label>
+            <input type="text" id="foodName" name="foodName" placeholder="Masukkan nama makanan" required>
+
+            <label for="calories">Kalori (kcal):</label>
+            <input type="number" id="calories" name="calories" placeholder="Masukkan jumlah kalori" required>
+
+            <label for="activity">Jenis Aktivitas:</label>
+            <select id="activity" name="activity" required>
+                <option value="">Pilih aktivitas</option>
+                <option value="jalan">Jalan Kaki</option>
+                <option value="lari">Lari</option>
+                <option value="sepeda">Bersepeda</option>
+            </select>
+
+            <label for="duration">Durasi (jam):</label>
+            <input type="number" id="duration" name="duration" placeholder="Masukkan durasi aktivitas" required>
+
+            <button type="submit">Tambah Data</button>
+        </form>
+    </div>
+
+    <div class="result" id="result">
+        <p>Total kalori makanan: <strong id="totalCalories">0</strong></p>
+        <p>Total kalori terbakar: <strong id="caloriesBurned">0</strong></p>
+        <p>Kalori bersih: <strong id="netCalories">0</strong></p>
+    </div>
+
+    <script>
+        let totalCalories = 0;
+        let totalBurned = 0;
+
+        function calculateCalories() {
+            const foodCalories = parseFloat(document.getElementById('calories').value) || 0;
+            const activity = document.getElementById('activity').value;
+            const duration = parseFloat(document.getElementById('duration').value) || 0;
+
+            let caloriesBurned = 0;
+
+            if (activity === 'jalan') caloriesBurned = duration * 200;
+            else if (activity === 'lari') caloriesBurned = duration * 400;
+            else if (activity === 'sepeda') caloriesBurned = duration * 300;
+
+            totalCalories += foodCalories;
+            totalBurned += caloriesBurned;
+
+            const netCalories = totalCalories - totalBurned;
+
+            document.getElementById('totalCalories').textContent = totalCalories;
+            document.getElementById('caloriesBurned').textContent = totalBurned;
+            document.getElementById('netCalories').textContent = netCalories;
+        }
+    </script>
+</body>
+</html>

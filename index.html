@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fffaf0;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        .container img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+        .container h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            display: block;
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .forgot-password {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #e63946;
+        }
+        .register {
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .register a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .register a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="image/love.jpg" alt="Icon">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="username" class="input-field" placeholder="Masukkan username" required>
+            <input type="password" id="password" class="input-field" placeholder="Masukkan password" required>
+            <button type="submit" class="button">Login</button>
+            <p id="errorMessage" class="error-message">Username atau password salah.</p>
+        </form>
+        <p class="forgot-password">
+            <a href="reset-password.html">Lupa password?</a>
+        </p>
+        <p class="register">
+            Belum punya akun? <a href="Registrasi.html">Daftar</a>
+        </p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const storedUsername = localStorage.getItem('userUsername');
+            const storedPassword = localStorage.getItem('userPassword');
+
+            if (username === storedUsername && password === storedPassword) {
+                window.location.href = 'rumah.html'; 
+            } else {
+                errorMessage.style.display = "block"; 
+            }
+        });
+    </script>
+</body>
+</html>

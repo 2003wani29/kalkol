@@ -1,0 +1,223 @@
+/* Reset dasar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* Kontainer Umum */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffe4e1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #d2691e;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #1e90ff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #d2691e;
+}
+
+/* Judul Evaluasi */
+.evaluation-title {
+    text-align: center;
+    color: #1E90FF;
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* Kontainer Evaluasi */
+.evaluation {
+    background-color: #FFE4E1;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.evaluation label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.evaluation input[type="text"],
+.evaluation input[type="email"],
+.evaluation textarea {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.evaluation textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Tombol Kirim */
+.submit-container {
+    text-align: center;
+}
+
+.submit-container input {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-container input:hover {
+    background-color: #1e90ff;
+}
+
+/* Kontainer Hasil */
+.result-container {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elemen dekoratif */
+.result-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(30, 144, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.result-container::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(220, 20, 60, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Konten dalam kontainer hasil */
+.result-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.result-content h2 {
+    font-size: 24px;
+    color: #d2691e;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.result-content p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.result-content .icon {
+    font-size: 50px;
+    color: #1e90ff;
+    margin-bottom: 15px;
+}
+
+/* Gaya untuk teks terima kasih */
+.thank-you {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #1e90ff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .result-container {
+        padding: 15px;
+    }
+
+    .result-content h2 {
+        font-size: 20px;
+    }
+
+    .result-content p {
+        font-size: 14px;
+    }
+}
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Kalori - Evaluasi</title>
+    <link rel="stylesheet" href="eval.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/home-icon.png" alt="home">
+            <h1><img src="image/kalkol.png" alt="kalkol"></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="entriprofil.html">Data</a></li>
+                <li><a href="catatan_kalkol.html">Giziku</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="evaluasi.html">Evaluasi</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h2 class="evaluation-title">Evaluasi</h2>
+    
+    <section class="evaluation">
+        <form id="evaluationForm" method="POST" action="submit_evaluasi.php">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+            
+            <label for="feedback">Kritik & Saran:</label>
+            <textarea id="feedback" name="feedback" placeholder="Tulis kritik & saran Anda di sini..." required></textarea>
+            
+            <div class="submit-container">
+                <input type="submit" class="send-button" value="K I R I M">
+            </div>
+        </form>
+    </section>
+    
+    <section class="result-container" id="resultContainer" style="display: none;">
+        <div class="result-content">
+            <div class="icon">✅</div>
+            <h2>Hasil Evaluasi Anda</h2>
+            <p id="result"></p>
+            <p class="thank-you">Terima kasih atas masukan Anda!</p>
+        </div>
+    </section>
+
+</body>
+</html>
