@@ -143,7 +143,7 @@
     <h2>Catatan Kalori Harian</h2>
 
     <div class="form-container">
-        <form id="calorieForm" method="POST" action="submit_calorie.php">
+        <form id="calorieForm">
             <label for="foodName">Nama Makanan:</label>
             <input type="text" id="foodName" name="foodName" placeholder="Masukkan nama makanan" required>
 
@@ -174,16 +174,16 @@
     <script>
         let totalCalories = 0;
         let totalBurned = 0;
-    
+
         document.getElementById('calorieForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Mencegah pengiriman form
-    
+
             const foodCalories = parseFloat(document.getElementById('calories').value) || 0;
             const activity = document.getElementById('activity').value;
             const duration = parseFloat(document.getElementById('duration').value) || 0;
-    
+
             let caloriesBurned = 0;
-    
+
             if (activity === 'jalan') {
                 caloriesBurned = duration * 200;
             } else if (activity === 'lari') {
@@ -191,21 +191,20 @@
             } else if (activity === 'sepeda') {
                 caloriesBurned = duration * 300;
             }
-    
+
             totalCalories += foodCalories;
             totalBurned += caloriesBurned;
-    
+
             const netCalories = totalCalories - totalBurned;
-    
+
             // Update tampilan
             document.getElementById('totalCalories').textContent = totalCalories;
             document.getElementById('caloriesBurned').textContent = totalBurned;
             document.getElementById('netCalories').textContent = netCalories;
-    
+
             // Reset input form setelah submit
             document.getElementById('calorieForm').reset();
         });
     </script>
-    
 </body>
 </html>

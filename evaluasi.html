@@ -26,7 +26,7 @@
     <h2 class="evaluation-title">Evaluasi</h2>
     
     <section class="evaluation">
-        <form id="evaluationForm" method="POST" action="submit_evaluasi.php">
+        <form id="evaluationForm">
             <label for="name">Nama:</label>
             <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
             
@@ -37,7 +37,7 @@
             <textarea id="feedback" name="feedback" placeholder="Tulis kritik & saran Anda di sini..." required></textarea>
             
             <div class="submit-container">
-                <input type="submit" class="send-button" value="K I R I M">
+                <button type="submit" class="send-button">K I R I M</button>
             </div>
         </form>
     </section>
@@ -51,5 +51,35 @@
         </div>
     </section>
 
+    <script>
+        document.getElementById("evaluationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah pengiriman form ke server
+            
+            // Ambil nilai input dari form
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const feedback = document.getElementById("feedback").value.trim();
+
+            // Validasi sederhana
+            if (!name || !email || !feedback) {
+                alert("Semua field wajib diisi!");
+                return;
+            }
+
+            // Menampilkan hasil evaluasi di halaman
+            const resultContainer = document.getElementById("resultContainer");
+            const result = document.getElementById("result");
+
+            result.innerHTML = `
+                Nama: <strong>${name}</strong><br>
+                Email: <strong>${email}</strong><br>
+                Kritik & Saran: <strong>${feedback}</strong>
+            `;
+
+            // Tampilkan pesan hasil dan sembunyikan form
+            resultContainer.style.display = "block";
+            document.getElementById("evaluationForm").style.display = "none";
+        });
+    </script>
 </body>
 </html>
