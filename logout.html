@@ -5,11 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css-4.css">
     <title>Kalkulator Kalori</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff9f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffd7d7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4a90e2;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #1c73c0;
+        }
+
+        .profile-entry-container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .profile-entry-container p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0056b3; /* Teks biru */
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            background-color: #fff9f4; /* Sama dengan background halaman */
+            border: 1px solid #5c5c8a; /* Menambahkan sedikit outline */
+            border-radius: 15px;
+            color: #5c5c8a;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons button:hover {
+            background-color: #f4b8bc; /* Warna hover */
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="image/home-icon.png" alt="home">
+            <img src="image/home-icon.png" alt="Home">
             <h1><img src="image/kalkol.png" alt="kalkol"></h1>
         </div>
         <nav>
@@ -24,12 +109,12 @@
     </header>
     <main>
         <section class="profile-entry-container">
-            <p>Anda yakin ingin keluar?</p>
+            <p>Anda yakin ingin logout?</p>
             <div class="buttons">
-                <!-- Tombol Ya mengarahkan ke halaman Registrasi -->
-                <a href="Registrasi.html" class="yes">Ya</a>
-                <!-- Tombol Tidak mengarahkan ke halaman Rumah -->
-                <a href="rumah.html" class="no">Tidak</a>
+                <!-- Tombol Ya -->
+                <button onclick="window.location.href='./index.html'">Ya</button>
+                <!-- Tombol Tidak -->
+                <button onclick="window.location.href='./rumah.html'">Tidak</button>
             </div>
         </section>
     </main>
