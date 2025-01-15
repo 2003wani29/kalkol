@@ -174,27 +174,38 @@
     <script>
         let totalCalories = 0;
         let totalBurned = 0;
-
-        function calculateCalories() {
+    
+        document.getElementById('calorieForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Mencegah pengiriman form
+    
             const foodCalories = parseFloat(document.getElementById('calories').value) || 0;
             const activity = document.getElementById('activity').value;
             const duration = parseFloat(document.getElementById('duration').value) || 0;
-
+    
             let caloriesBurned = 0;
-
-            if (activity === 'jalan') caloriesBurned = duration * 200;
-            else if (activity === 'lari') caloriesBurned = duration * 400;
-            else if (activity === 'sepeda') caloriesBurned = duration * 300;
-
+    
+            if (activity === 'jalan') {
+                caloriesBurned = duration * 200;
+            } else if (activity === 'lari') {
+                caloriesBurned = duration * 400;
+            } else if (activity === 'sepeda') {
+                caloriesBurned = duration * 300;
+            }
+    
             totalCalories += foodCalories;
             totalBurned += caloriesBurned;
-
+    
             const netCalories = totalCalories - totalBurned;
-
+    
+            // Update tampilan
             document.getElementById('totalCalories').textContent = totalCalories;
             document.getElementById('caloriesBurned').textContent = totalBurned;
             document.getElementById('netCalories').textContent = netCalories;
-        }
+    
+            // Reset input form setelah submit
+            document.getElementById('calorieForm').reset();
+        });
     </script>
+    
 </body>
 </html>
